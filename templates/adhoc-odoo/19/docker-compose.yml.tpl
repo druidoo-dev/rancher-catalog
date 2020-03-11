@@ -40,6 +40,10 @@ services:
         {{- end}}
 
         environment:
+            # OS Environment
+        {{- if .Values.enumHostTimezone }}
+            TZ: ${enumHostTimezone}
+        {{- end}}
             # Database parameters
             PGUSER: ${strPgUser}
             PGPASSWORD: ${strPgPassword}
